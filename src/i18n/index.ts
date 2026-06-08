@@ -18,7 +18,7 @@ i18n
     fallbackLng: 'ru',
     supportedLngs: ['ru', 'kk'],
     interpolation: {
-      escapeValue: false, // react already safes from xss
+      escapeValue: false, 
     },
   });
 

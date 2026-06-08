@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import { NavLink, useNavigate, Outlet, Link } from 'react-router-dom';
-import { Scale, Users, Briefcase, LogOut, LayoutDashboard, ChevronRight, ExternalLink } from 'lucide-react';
+import { Scale, Users, Briefcase, LogOut, LayoutDashboard, ChevronRight, ExternalLink, FileText } from 'lucide-react';
 import { useAuthStore } from '@/store/authStore';
 import { useUIStore } from '@/store/uiStore';
 
@@ -8,6 +8,7 @@ const navItems = [
   { to: '/admin', icon: LayoutDashboard, label: 'Дашборд', end: true },
   { to: '/admin/lawyers', icon: Users, label: 'Адвокаты' },
   { to: '/admin/services', icon: Briefcase, label: 'Услуги' },
+  { to: '/admin/documents', icon: FileText, label: 'Документы' },
 ];
 
 interface AdminLayoutProps {

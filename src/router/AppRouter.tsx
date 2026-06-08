@@ -5,6 +5,8 @@ import HomePage from '@/pages/HomePage';
 import ServicesPage from '@/pages/ServicesPage';
 import LawyersPage from '@/pages/LawyersPage';
 import NotFoundPage from '@/pages/NotFoundPage';
+import DocumentsPage from '@/pages/DocumentsPage';
+import AboutUsPage from '@/pages/AboutUsPage';
 import LawyerProfilePage from '@/features/lawyers/LawyerProfilePage';
 import AdminLoginPage from '@/features/admin/AdminLoginPage';
 import AdminLayout from '@/features/admin/AdminLayout';
@@ -12,6 +14,8 @@ import LawyerList from '@/features/admin/LawyerList';
 import LawyerForm from '@/features/admin/LawyerForm';
 import ServiceList from '@/features/admin/ServiceList';
 import ServiceForm from '@/features/admin/ServiceForm';
+import DocumentList from '@/features/admin/DocumentList';
+import DocumentForm from '@/features/admin/DocumentForm';
 import RequireAuth from './RequireAuth';
 import ToastContainer from '@/components/common/ToastContainer';
 
@@ -24,6 +28,9 @@ function PublicLayout() {
         <Route path="services" element={<ServicesPage />} />
         <Route path="lawyers" element={<LawyersPage />} />
         <Route path="lawyers/:slug" element={<LawyerProfilePage />} />
+        {/* Yangi public sahifalar */}
+        <Route path="documents" element={<DocumentsPage />} />
+        <Route path="about-us" element={<AboutUsPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <Footer />
@@ -49,6 +56,10 @@ export default function AppRouter() {
             <Route path="services" element={<ServiceList />} />
             <Route path="services/new" element={<ServiceForm />} />
             <Route path="services/:id/edit" element={<ServiceForm />} />
+            {/* Yangi admin: hujjatlar boshqaruvi */}
+            <Route path="documents" element={<DocumentList />} />
+            <Route path="documents/new" element={<DocumentForm />} />
+            <Route path="documents/:id/edit" element={<DocumentForm />} />
           </Route>
         </Route>
 

@@ -5,17 +5,18 @@ export default {
   theme: {
     extend: {
       colors: {
+        // Asosiy rang: och yashil (light green) — professional, arbitraj uchun mos
         gold: {
-          50:  '#fdf8ec',
-          100: '#f8edcd',
-          200: '#f0d897',
-          300: '#e8c161',
-          400: '#e0aa2b',
-          500: '#C9A84C',
-          600: '#b08a32',
-          700: '#8c6b24',
-          800: '#6a4f1a',
-          900: '#4a3612',
+          50:  '#f0fdf4',
+          100: '#dcfce7',
+          200: '#bbf7d0',
+          300: '#86efac',
+          400: '#4ade80',
+          500: '#22c55e',
+          600: '#16a34a',
+          700: '#15803d',
+          800: '#166534',
+          900: '#14532d',
         },
         dark: {
           50:  '#f5f5f5',
@@ -36,7 +37,8 @@ export default {
         sans:   ['"Inter"', 'system-ui', 'sans-serif'],
       },
       backgroundImage: {
-        'gold-gradient': 'linear-gradient(135deg, #C9A84C 0%, #e8c161 50%, #C9A84C 100%)',
+        // Yashil gradient (light → dark green)
+        'gold-gradient': 'linear-gradient(135deg, #22c55e 0%, #4ade80 50%, #16a34a 100%)',
         'dark-gradient': 'linear-gradient(180deg, #0a0a0a 0%, #111111 100%)',
       },
       animation: {
