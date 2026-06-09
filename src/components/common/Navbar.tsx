@@ -36,7 +36,7 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? 'bg-white/95 dark:bg-dark-950/95 backdrop-blur-md border-b border-gray-200/80 dark:border-dark-800/80 shadow-lg shadow-gray-200/50 dark:shadow-dark-950/50'
+          ? 'bg-white dark:bg-dark-950 border-b border-gray-200 dark:border-dark-800 shadow-sm'
           : 'bg-transparent'
       }`}
     >
@@ -84,25 +84,41 @@ export default function Navbar() {
 
           {/* CTA + Actions + Mobile Menu Toggle */}
           <div className="flex items-center gap-4">
-            <div className="flex items-center gap-2 mr-2">
+            <div className="flex items-center gap-1">
+              {/* RU/KK tugmasi — scrolled holatda ham, transparent holatda ham ko'rinadi */}
               <button
                 onClick={toggleLanguage}
-                className="w-8 h-8 flex items-center justify-center rounded-lg text-xs font-medium text-gray-600 dark:text-dark-300 hover:bg-gray-100 dark:hover:bg-dark-800 transition-colors uppercase"
+                className={`w-9 h-9 flex items-center justify-center rounded-lg text-xs font-semibold uppercase transition-colors ${
+                  scrolled
+                    ? 'text-gray-700 dark:text-dark-200 hover:bg-gray-100 dark:hover:bg-dark-800'
+                    : 'text-gray-900 dark:text-dark-50 hover:bg-black/5 dark:hover:bg-white/10'
+                }`}
               >
-                {i18n.language}
+                {i18n.language.toUpperCase()}
               </button>
+
+              {/* Tema tugmasi */}
               <button
                 onClick={toggleTheme}
-                className="w-8 h-8 flex items-center justify-center rounded-lg text-gray-600 dark:text-dark-300 hover:bg-gray-100 dark:hover:bg-dark-800 transition-colors"
+                className={`w-9 h-9 flex items-center justify-center rounded-lg transition-colors ${
+                  scrolled
+                    ? 'text-gray-700 dark:text-dark-200 hover:bg-gray-100 dark:hover:bg-dark-800'
+                    : 'text-gray-900 dark:text-dark-50 hover:bg-black/5 dark:hover:bg-white/10'
+                }`}
                 aria-label="Toggle theme"
               >
                 {theme === 'light' ? <Moon className="w-4 h-4" /> : <Sun className="w-4 h-4" />}
               </button>
             </div>
 
+            {/* Burger menu tugmasi */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="md:hidden p-2 rounded-lg text-gray-600 dark:text-dark-300 hover:bg-gray-100 dark:hover:bg-dark-800 transition-colors"
+              className={`md:hidden p-2 rounded-lg transition-colors ${
+                scrolled
+                  ? 'text-gray-700 dark:text-dark-200 hover:bg-gray-100 dark:hover:bg-dark-800'
+                  : 'text-gray-900 dark:text-dark-50 hover:bg-black/5 dark:hover:bg-white/10'
+              }`}
               aria-label="Toggle menu"
               id="navbar-menu-toggle"
             >
@@ -112,9 +128,9 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu — solid background, no transparency */}
       {isOpen && (
-        <div className="md:hidden bg-white/98 dark:bg-dark-900/98 backdrop-blur-md border-t border-gray-200 dark:border-dark-800 animate-slide-down shadow-xl shadow-gray-200/50 dark:shadow-dark-950/50">
+        <div className="md:hidden bg-white dark:bg-dark-900 border-t border-gray-200 dark:border-dark-800 animate-slide-down shadow-lg">
           <div className="px-4 py-4 space-y-1">
             {navLinks.map(({ to, label }) => (
               <NavLink
@@ -122,10 +138,10 @@ export default function Navbar() {
                 to={to}
                 end={to === '/'}
                 className={({ isActive }) =>
-                  `block px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
+                  `block px-4 py-3.5 rounded-xl text-sm font-medium transition-colors ${
                     isActive
-                      ? 'bg-gold-500/10 text-gold-500 dark:text-gold-400'
-                      : 'text-gray-600 dark:text-dark-300 hover:bg-gray-50 dark:hover:bg-dark-800 hover:text-gray-900 dark:hover:text-dark-50'
+                      ? 'bg-gold-500/10 text-gold-600 dark:text-gold-400 font-semibold'
+                      : 'text-gray-700 dark:text-dark-200 hover:bg-gray-50 dark:hover:bg-dark-800'
                   }`
                 }
               >

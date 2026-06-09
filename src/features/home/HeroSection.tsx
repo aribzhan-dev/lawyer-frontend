@@ -75,31 +75,28 @@ export default function HeroSection() {
             </Link>
           </div>
 
-          {/* Advantages grid — hujjatdagi "Наши преимущества" ro'yxatidan */}
+          {/* Advantages grid */}
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 max-w-3xl">
             {advantages.map(({ icon: Icon, key }) => (
               <div
                 key={key}
-                className="flex items-center gap-2.5 bg-white/60 dark:bg-dark-800/40 backdrop-blur-sm
-                           border border-gray-200/60 dark:border-dark-700/40 rounded-xl px-3 py-2.5
-                           text-gray-600 dark:text-dark-300 text-xs font-medium"
+                className="flex items-center gap-2.5
+                           bg-white dark:bg-dark-800/60
+                           shadow-sm dark:shadow-none
+                           rounded-xl px-3 py-3
+                           text-gray-700 dark:text-dark-200
+                           text-xs font-medium
+                           overflow-hidden"
               >
                 <div className="w-6 h-6 rounded-md bg-gold-500/10 flex items-center justify-center flex-shrink-0">
                   <Icon className="w-3.5 h-3.5 text-gold-500" />
                 </div>
-                <span className="leading-tight">{t(`hero.${key}`)}</span>
+                {/* min-w-0 majburiy — flex container ichida text wrap bo'lishi uchun */}
+                <span className="leading-snug min-w-0 break-words">{t(`hero.${key}`)}</span>
               </div>
             ))}
           </div>
         </div>
-      </div>
-
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
-        <span className="text-gray-500 dark:text-dark-500 text-[10px] tracking-widest uppercase">
-          {t('hero.scroll', 'Прокрутка')}
-        </span>
-        <div className="w-px h-10 bg-gradient-to-b from-gray-300 dark:from-dark-500 to-transparent" />
       </div>
     </section>
   );
