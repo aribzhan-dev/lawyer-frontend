@@ -91,7 +91,6 @@ export default function HeroSection() {
                 <div className="w-6 h-6 rounded-md bg-gold-500/10 flex items-center justify-center flex-shrink-0">
                   <Icon className="w-3.5 h-3.5 text-gold-500" />
                 </div>
-                {/* min-w-0 majburiy — flex container ichida text wrap bo'lishi uchun */}
                 <span className="leading-snug min-w-0 break-words">{t(`hero.${key}`)}</span>
               </div>
             ))}
