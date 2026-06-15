@@ -9,14 +9,13 @@ export default function LawyersPage() {
   const { t } = useTranslation();
 
   return (
-    <main className="min-h-screen pt-24 pb-20 bg-gradient-to-b from-gray-50 to-gray-100 dark:bg-dark-gradient">
+    <main className="min-h-screen pt-32 md:pt-40 pb-20 bg-gradient-to-b from-gray-50 to-gray-100 dark:bg-dark-gradient">
       <div className="container-max px-4 sm:px-6 lg:px-8">
         {/* Page header */}
         <div className="text-center mb-16">
           <SectionHeader
             eyebrow={t('lawyers.page_eyebrow')}
             title={t('lawyers.page_title1')}
-            titleHighlight={t('lawyers.page_title2')}
             subtitle={t('lawyers.page_desc')}
             centered
           />

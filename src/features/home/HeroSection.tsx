@@ -39,18 +39,21 @@ export default function HeroSection() {
           {/* Eyebrow */}
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold-500/20 bg-gold-500/5 mb-8">
             <span className="w-1.5 h-1.5 rounded-full bg-gold-500 animate-pulse" />
-            <span className="text-gold-600 dark:text-gold-400 text-xs font-semibold tracking-[0.15em] uppercase">
+            <span className="text-gold-600 dark:text-gold-400 text-sm md:text-base font-semibold tracking-[0.15em] uppercase">
               {t('hero.subtitle')}
             </span>
           </div>
 
           {/* Headline — hujjatdan: "Арбитраж города Шымкент и Туркестанской области" */}
-          <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold text-gray-900 dark:text-dark-50 leading-[1.05] mb-6">
+          <h1 
+            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold text-gray-900 dark:text-dark-50 leading-[1.05] mb-6"
+            style={{ fontFamily: 'Tahoma, sans-serif' }}
+          >
             {t('hero.title1')}
             <br />
-            <span className="gold-text">{t('hero.title2')}</span>
+            <span>{t('hero.title2')}</span>
             <br />
-            <span className="text-gray-700 dark:text-dark-200 text-4xl sm:text-5xl md:text-6xl lg:text-7xl">
+            <span>
               {t('hero.title3')}
             </span>
           </h1>
@@ -75,7 +78,6 @@ export default function HeroSection() {
             </Link>
           </div>
 
-          {/* Advantages grid */}
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 max-w-3xl">
             {advantages.map(({ icon: Icon, key }) => (
               <div

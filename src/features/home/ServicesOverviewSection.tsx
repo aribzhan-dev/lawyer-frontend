@@ -15,9 +15,7 @@ export default function ServicesOverviewSection() {
       <div className="container-max">
         <div className="flex flex-col lg:flex-row items-start justify-between gap-8 mb-14">
           <SectionHeader
-            eyebrow={t('services.eyebrow')}
-            title={t('services.title1')}
-            titleHighlight={t('services.title2')}
+            title={`${t('services.title1')} ${t('services.title2')}`.toUpperCase()}
             subtitle={t('services.description')}
           />
           <Link

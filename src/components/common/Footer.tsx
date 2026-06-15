@@ -69,15 +69,15 @@ export default function Footer() {
             <ul className="space-y-2.5">
               {[
                 { to: '/', label: t('nav.home') },
+                { to: '/about-us', label: t('nav.about_us') },
                 { to: '/services', label: t('nav.services') },
                 { to: '/lawyers', label: t('nav.lawyers') },
                 { to: '/documents', label: t('nav.documents') },
-                { to: '/about-us', label: t('nav.about_us') },
               ].map(({ to, label }) => (
                 <li key={to}>
                   <Link
                     to={to}
-                    className="text-gray-500 dark:text-dark-400 text-sm hover:text-gold-400 transition-colors flex items-center gap-2 group"
+                    className="text-gray-500 dark:text-dark-400 uppercase text-sm hover:text-gold-400 transition-colors flex items-center gap-2 group"
                   >
                     <span className="w-1 h-1 rounded-full bg-gold-600 group-hover:bg-gold-400 transition-colors" />
                     {label}
@@ -95,11 +95,18 @@ export default function Footer() {
                 <MapPin className="w-4 h-4 text-gold-500 mt-0.5 flex-shrink-0" />
                 <span>Казахстан, город Шымкент, район Тұран,<br />Микрорайон 8, дом 54, кв. 18<br />Индекс: 160000</span>
               </li>
-              <li className="flex items-center gap-3 text-gray-500 dark:text-dark-400 text-sm">
-                <Phone className="w-4 h-4 text-gold-500 flex-shrink-0" />
-                <a href="tel:+77000000000" className="hover:text-gold-400 transition-colors">
-                  +7 (700) 000-00-00
-                </a>
+              <li className="flex flex-col gap-2 text-gray-500 dark:text-dark-400 text-sm">
+                <div className="flex items-center gap-3">
+                  <Phone className="w-4 h-4 text-gold-500 flex-shrink-0" />
+                  <a href="tel:+77770426262" className="hover:text-gold-400 transition-colors">
+                    +7 (777) 042-62-62
+                  </a>
+                </div>
+                <div className="flex items-center gap-3 ml-7">
+                  <a href="tel:+77000007747" className="hover:text-gold-400 transition-colors">
+                    +7 (700) 000-77-47
+                  </a>
+                </div>
               </li>
               <li className="flex items-center gap-3 text-gray-500 dark:text-dark-400 text-sm">
                 <Mail className="w-4 h-4 text-gold-500 flex-shrink-0" />

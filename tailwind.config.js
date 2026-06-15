@@ -33,7 +33,7 @@ export default {
         },
       },
       fontFamily: {
-        serif:  ['"Cormorant Garamond"', 'Georgia', 'serif'],
+        serif:  ['Tahoma', '"Cormorant Garamond"', 'Georgia', 'serif'],
         sans:   ['"Inter"', 'system-ui', 'sans-serif'],
       },
       backgroundImage: {

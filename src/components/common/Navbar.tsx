@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
-import { Menu, X, Scale, Sun, Moon } from 'lucide-react';
+import { Menu, X, Scale, Sun, Moon, Phone, Mail } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { useUIStore } from '../../store/uiStore';
 
@@ -13,10 +13,10 @@ export default function Navbar() {
 
   const navLinks = [
     { to: '/', label: t('nav.home') },
+    { to: '/about-us', label: t('nav.about_us') },
     { to: '/services', label: t('nav.services') },
     { to: '/lawyers', label: t('nav.lawyers') },
     { to: '/documents', label: t('nav.documents') },
-    { to: '/about-us', label: t('nav.about_us') },
   ];
 
   useEffect(() => {
@@ -34,13 +34,36 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 z-50 flex flex-col transition-all duration-500 ${
         scrolled
           ? 'bg-white dark:bg-dark-950 border-b border-gray-200 dark:border-dark-800 shadow-sm'
           : 'bg-transparent'
       }`}
     >
-      <div className="container-max">
+      {/* Top Contact Bar */}
+      <div className="w-full bg-gold-500 text-white dark:bg-gold-600 shadow-sm">
+        <div className="container-max">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-8 py-2 sm:py-2.5 px-4 sm:px-6 lg:px-8 font-semibold text-sm sm:text-base md:text-lg tracking-wide">
+            <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
+              <a href="tel:+77770426262" className="flex items-center gap-2 hover:text-gold-100 transition-colors">
+                <Phone className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
+                +7 (777) 042-62-62
+              </a>
+              <span className="hidden sm:block text-gold-200/50">|</span>
+              <a href="tel:+77000007747" className="flex items-center gap-2 hover:text-gold-100 transition-colors">
+                +7 (700) 000-77-47
+              </a>
+            </div>
+            <span className="hidden md:block text-gold-200/50">|</span>
+            <a href="mailto:info@arbitraj-shymkent.kz" className="flex items-center gap-2 hover:text-gold-100 transition-colors">
+              <Mail className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
+              info@arbitraj-shymkent.kz
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div className="container-max w-full">
         <div className="flex items-center justify-between h-20 px-4 sm:px-6 lg:px-8">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
@@ -63,7 +86,7 @@ export default function Navbar() {
                 to={to}
                 end={to === '/'}
                 className={({ isActive }) =>
-                  `text-sm font-medium tracking-wide transition-colors duration-200 relative group ${
+                  `uppercase text-sm font-medium tracking-wide transition-colors duration-200 relative group ${
                     isActive ? 'text-gold-400' : 'text-gray-600 dark:text-dark-300 hover:text-gray-900 dark:hover:text-dark-50'
                   }`
                 }
@@ -138,7 +161,7 @@ export default function Navbar() {
                 to={to}
                 end={to === '/'}
                 className={({ isActive }) =>
-                  `block px-4 py-3.5 rounded-xl text-sm font-medium transition-colors ${
+                  `block px-4 py-3.5 rounded-xl uppercase text-sm font-medium transition-colors ${
                     isActive
                       ? 'bg-gold-500/10 text-gold-600 dark:text-gold-400 font-semibold'
                       : 'text-gray-700 dark:text-dark-200 hover:bg-gray-50 dark:hover:bg-dark-800'
