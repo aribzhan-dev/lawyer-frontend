@@ -34,19 +34,19 @@ export default function HeroSection() {
         />
       </div>
 
-      <div className="container-max section-padding relative z-10 pt-32 md:pt-40">
+      <div className="container-max section-padding relative z-10 pt-[200px] sm:pt-[160px] md:pt-48 lg:pt-56">
         <div className="max-w-4xl">
           {/* Eyebrow */}
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold-500/20 bg-gold-500/5 mb-8">
             <span className="w-1.5 h-1.5 rounded-full bg-gold-500 animate-pulse" />
-            <span className="text-gold-600 dark:text-gold-400 text-sm md:text-base font-semibold tracking-[0.15em] uppercase">
+            <span className="text-gold-600 dark:text-gold-400 text-sm md:text-base font-semibold tracking-[0.15em] uppercase text-center">
               {t('hero.subtitle')}
             </span>
           </div>
 
           {/* Headline — hujjatdan: "Арбитраж города Шымкент и Туркестанской области" */}
           <h1 
-            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold text-gray-900 dark:text-dark-50 leading-[1.05] mb-6"
+            className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-semibold text-gray-900 dark:text-dark-50 leading-[1.1] mb-6 break-words hyphens-auto"
             style={{ fontFamily: 'Tahoma, sans-serif' }}
           >
             {t('hero.title1')}

@@ -9,7 +9,7 @@ export default function LawyersPage() {
   const { t } = useTranslation();
 
   return (
-    <main className="min-h-screen pt-32 md:pt-40 pb-20 bg-gradient-to-b from-gray-50 to-gray-100 dark:bg-dark-gradient">
+    <main className="min-h-screen pt-[200px] sm:pt-[160px] md:pt-48 pb-20 bg-gradient-to-b from-gray-50 to-gray-100 dark:bg-dark-gradient">
       <div className="container-max px-4 sm:px-6 lg:px-8">
         {/* Page header */}
         <div className="text-center mb-16">

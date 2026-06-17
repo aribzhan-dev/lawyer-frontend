@@ -38,7 +38,7 @@ export default function AboutUsPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-white dark:bg-dark-950 pt-32 md:pt-40 pb-20">
+    <main className="min-h-screen bg-white dark:bg-dark-950 pt-[200px] sm:pt-[160px] md:pt-48 pb-20">
       {/* ── Hero Header ─────────────────────────────────────────── */}
       <section className="relative bg-gradient-to-b from-gray-50 to-white dark:from-dark-900 dark:to-dark-950 border-b border-gray-200/60 dark:border-dark-800/60 py-16 overflow-hidden">
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
