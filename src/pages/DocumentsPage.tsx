@@ -5,20 +5,7 @@ import { documentsApi } from "@/api/documentsApi";
 import type { Document } from "@/types/document";
 import Spinner from "@/components/common/Spinner";
 
-/**
- * Backend origin URL — fayl manzillarini to'liq absolute URL ga aylantiradi.
- * VITE_BACKEND_URL set bo'lmasa localhost:8000 ga fallback qiladi.
- * MUHIM: VITE_API_URL relative (/api/v1) bo'lishi mumkin, shuning uchun uni ishlatmaymiz.
- */
-const BACKEND_ORIGIN =
-  import.meta.env.VITE_BACKEND_URL?.replace(/\/$/, "") ??
-  "http://localhost:8000";
-
-/** `/uploads/file.pdf` → `http://localhost:8000/uploads/file.pdf` */
-function getFileUrl(fileUrl: string): string {
-  if (fileUrl.startsWith("http")) return fileUrl;
-  return `${BACKEND_ORIGIN}${fileUrl}`;
-}
+import { getFileUrl } from "@/utils/getFileUrl";
 
 export default function DocumentsPage() {
   const { t } = useTranslation();

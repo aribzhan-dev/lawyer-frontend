@@ -7,8 +7,8 @@ import { documentsApi } from '@/api/documentsApi';
 import { useUIStore } from '@/store/uiStore';
 import apiClient from '@/api/apiClient';
 import Button from '@/components/common/Button';
+import { getFileUrl } from '@/utils/getFileUrl';
 
-/** Yangi hujjat uchun boshlang'ich holat. */
 const EMPTY: DocumentCreate = {
   title: '',
   file_url: '',
@@ -28,7 +28,6 @@ export default function DocumentForm() {
   const [isUploading, setIsUploading] = useState(false);
   const [fileName, setFileName] = useState<string>('');
 
-  // Fayl input uchun ref
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   // Tahrirlash rejimida mavjud ma'lumotlarni yuklash
@@ -179,6 +178,11 @@ export default function DocumentForm() {
                     <p className="text-gray-900 dark:text-dark-50 text-sm font-medium truncate">{fileName}</p>
                     <p className="text-gray-400 dark:text-dark-500 text-xs truncate">{form.file_url}</p>
                   </div>
+                  <iframe
+                    src={`${getFileUrl(form.file_url)}#toolbar=0`}
+                    className="w-full h-full border-0"
+                    title="PDF Preview"
+                  />
                   <button
                     type="button"
                     onClick={(e) => {

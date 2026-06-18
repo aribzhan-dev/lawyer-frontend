@@ -6,6 +6,7 @@ import type { Document } from '@/types/document';
 import { useUIStore } from '@/store/uiStore';
 import Button from '@/components/common/Button';
 import Spinner from '@/components/common/Spinner';
+import { getFileUrl } from '@/utils/getFileUrl';
 
 export default function DocumentList() {
   const [documents, setDocuments] = useState<Document[]>([]);
@@ -97,7 +98,7 @@ export default function DocumentList() {
                           </p>
                           {/* Fayl havolasi — <a> tegi */}
                           <a
-                            href={doc.file_url.startsWith('http') ? doc.file_url : `http://localhost:8000${doc.file_url}`}
+                            href={getFileUrl(doc.file_url)}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-gray-400 dark:text-dark-500 text-xs hover:text-gold-500 transition-colors truncate block max-w-xs"
