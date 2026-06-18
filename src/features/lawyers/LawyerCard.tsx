@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { Briefcase, ArrowRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import type { Lawyer } from '@/types/lawyer';
+import { getFileUrl } from '@/utils/getFileUrl';
 
 interface LawyerCardProps {
   lawyer: Lawyer;
@@ -20,7 +21,7 @@ export default function LawyerCard({ lawyer }: LawyerCardProps) {
       <div className="relative aspect-[3/4] overflow-hidden bg-white dark:bg-dark-800">
         {lawyer.photo_url ? (
           <img
-            src={lawyer.photo_url.startsWith('http') ? lawyer.photo_url : `http://localhost:8000${lawyer.photo_url}`}
+            src={getFileUrl(lawyer.photo_url)}
             alt={lawyer.full_name}
             className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
           />

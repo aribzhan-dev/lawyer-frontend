@@ -6,6 +6,7 @@ import type { Lawyer } from '@/types/lawyer';
 import { useUIStore } from '@/store/uiStore';
 import Button from '@/components/common/Button';
 import Spinner from '@/components/common/Spinner';
+import { getFileUrl } from '@/utils/getFileUrl';
 
 export default function АдвокатList() {
   const [lawyers, setАдвокатs] = useState<Lawyer[]>([]);
@@ -76,7 +77,7 @@ export default function АдвокатList() {
                       <div className="flex items-center gap-3">
                         <div className="w-9 h-9 rounded-lg overflow-hidden bg-gray-100 dark:bg-dark-700 flex-shrink-0">
                           {lawyer.photo_url ? (
-                            <img src={lawyer.photo_url.startsWith('http') ? lawyer.photo_url : `http://localhost:8000${lawyer.photo_url}`} alt={lawyer.full_name} className="w-full h-full object-cover" />
+                            <img src={getFileUrl(lawyer.photo_url)} alt={lawyer.full_name} className="w-full h-full object-cover" />
                           ) : (
                             <div className="w-full h-full flex items-center justify-center">
                               <span className="text-gray-500 dark:text-dark-400 text-sm font-semibold">{lawyer.full_name.charAt(0)}</span>

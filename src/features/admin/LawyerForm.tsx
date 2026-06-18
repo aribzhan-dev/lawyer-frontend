@@ -10,6 +10,7 @@ import { useServicesFlat } from '@/hooks/useServices';
 import { useUIStore } from '@/store/uiStore';
 import Button from '@/components/common/Button';
 import Spinner from '@/components/common/Spinner';
+import { getFileUrl } from '@/utils/getFileUrl';
 
 const EMPTY_FORM: LawyerCreate = {
   full_name: '',
@@ -229,7 +230,7 @@ export default function LawyerForm() {
                 <div className="w-16 h-16 rounded-xl bg-gray-100 dark:bg-dark-800 flex items-center justify-center overflow-hidden flex-shrink-0 border border-gray-200 dark:border-dark-700">
                   {form.photo_url ? (
                     <img
-                      src={form.photo_url.startsWith('http') ? form.photo_url : `http://localhost:8000${form.photo_url}`}
+                      src={getFileUrl(form.photo_url)}
                       alt="Preview"
                       className="w-full h-full object-cover"
                     />

@@ -4,6 +4,7 @@ import { useLawyerBySlug } from '@/hooks/useLawyers';
 import { useTranslation } from 'react-i18next';
 import Badge from '@/components/common/Badge';
 import Spinner from '@/components/common/Spinner';
+import { getFileUrl } from '@/utils/getFileUrl';
 
 function buildWhatsAppUrl(phone: string, lawyerName: string, message?: string | null): string {
   const defaultMsg = message || `Hello, I would like to schedule a consultation with ${lawyerName}.`;
@@ -43,7 +44,7 @@ export default function LawyerProfilePage() {
       <div className="relative h-[45vh] min-h-[320px] overflow-hidden">
         {lawyer.photo_url ? (
           <img
-            src={lawyer.photo_url.startsWith('http') ? lawyer.photo_url : `http://localhost:8000${lawyer.photo_url}`}
+            src={getFileUrl(lawyer.photo_url)}
             alt={lawyer.full_name}
             className="w-full h-full object-cover object-top"
           />
@@ -68,7 +69,7 @@ export default function LawyerProfilePage() {
               <div className="aspect-[4/5] overflow-hidden bg-white dark:bg-dark-800">
                 {lawyer.photo_url ? (
                   <img
-                    src={lawyer.photo_url.startsWith('http') ? lawyer.photo_url : `http://localhost:8000${lawyer.photo_url}`}
+                    src={getFileUrl(lawyer.photo_url)}
                     alt={lawyer.full_name}
                     className="w-full h-full object-cover object-top"
                   />
