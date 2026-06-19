@@ -40,7 +40,7 @@ export default function LawyerProfilePage() {
   const whatsappUrl = buildWhatsAppUrl(lawyer.phone, lawyer.full_name, lawyer.whatsapp_message);
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 dark:bg-dark-gradient pt-20">
+    <main className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 dark:bg-dark-gradient pt-[116px]">
       {/* Hero Banner */}
       <div className="relative h-[45vh] min-h-[320px] overflow-hidden">
         {lawyer.photo_url ? (
@@ -146,7 +146,7 @@ export default function LawyerProfilePage() {
           </div>
 
           {/* Right: Full profile content */}
-          <div className="lg:col-span-2 space-y-10 pb-20">
+          <div className="lg:col-span-2 space-y-10 pb-10 glass-card p-6 sm:p-10">
             {/* Back link */}
             <Link
               to="/lawyers"

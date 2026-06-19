@@ -43,20 +43,14 @@ export default function Navbar() {
       {/* Top Contact Bar */}
       <div className="w-full bg-gold-500 text-white dark:bg-gold-600 shadow-sm">
         <div className="container-max">
-          <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-8 py-2 sm:py-2.5 px-4 sm:px-6 lg:px-8 font-semibold text-sm sm:text-base md:text-lg tracking-wide">
-            <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
-              <a href="tel:+77770426262" className="flex items-center gap-2 hover:text-gold-100 transition-colors">
-                <Phone className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
-                +7 (777) 042-62-62
-              </a>
-              <span className="hidden sm:block text-gold-200/50">|</span>
-              <a href="tel:+77000007747" className="flex items-center gap-2 hover:text-gold-100 transition-colors">
-                +7 (700) 000-77-47
-              </a>
-            </div>
-            <span className="hidden md:block text-gold-200/50">|</span>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 py-2 px-4 sm:px-6 lg:px-8 text-xs sm:text-sm font-medium tracking-wide">
+            <a href="tel:+77770426262" className="flex items-center gap-2 hover:text-gold-100 transition-colors">
+              <Phone className="w-3.5 h-3.5" />
+              +7 (777) 042-62-62
+            </a>
+            <span className="hidden sm:block text-gold-200/50">|</span>
             <a href="mailto:info@arbitraj-shymkent.kz" className="flex items-center gap-2 hover:text-gold-100 transition-colors">
-              <Mail className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
+              <Mail className="w-3.5 h-3.5" />
               info@arbitraj-shymkent.kz
             </a>
           </div>
