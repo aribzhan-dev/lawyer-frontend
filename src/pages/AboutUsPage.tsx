@@ -53,7 +53,10 @@ export default function AboutUsPage() {
             </span>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-gray-900 dark:text-dark-50 leading-tight mb-4">
+          <h1 
+            className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-semibold text-gray-900 dark:text-dark-50 leading-[1.2] mb-4 break-words hyphens-auto"
+            style={{ fontFamily: 'Tahoma, sans-serif' }}
+          >
             {t("about.page_title1")}
             <br />
             {t("about.page_title2")}

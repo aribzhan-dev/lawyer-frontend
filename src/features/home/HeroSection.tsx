@@ -46,7 +46,7 @@ export default function HeroSection() {
 
           {/* Headline — hujjatdan: "Арбитраж города Шымкент и Туркестанской области" */}
           <h1 
-            className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-semibold text-gray-900 dark:text-dark-50 leading-[1.15] mb-6 break-words hyphens-auto"
+            className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-semibold text-gray-900 dark:text-dark-50 leading-[1.2] mb-6 break-words hyphens-auto"
             style={{ fontFamily: 'Tahoma, sans-serif' }}
           >
             {t('hero.title1')}

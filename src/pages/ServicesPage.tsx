@@ -14,7 +14,7 @@ export default function ServicesPage() {
         {/* Page header */}
         <div className="text-center mb-16">
           <SectionHeader
-            title={`${t('services.page_title1')} ${t('services.page_title2')}`.toUpperCase()}
+            title={`${t('services.page_title1')} ${t('services.page_title2')}`}
             subtitle={t('services.page_desc')}
             centered
           />
