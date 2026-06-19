@@ -240,10 +240,10 @@ export default function AboutUsPage() {
                   Время работы
                 </p>
                 <p className="text-gray-600 dark:text-dark-300 text-sm">
-                  Понедельник – Пятница: 09:00–18:00
+                  Понедельник – Суббота: 09:00–18:00
                 </p>
                 <p className="text-gray-400 dark:text-dark-500 text-sm">
-                  Суббота, Воскресенье: выходные дни
+                  Воскресенье: выходной день
                 </p>
               </div>
             </div>
@@ -259,10 +259,10 @@ export default function AboutUsPage() {
                   <Phone className="w-4 h-4 text-gold-500 flex-shrink-0" />
                   {/* tel: protokoli — <a> tegi */}
                   <a
-                    href="tel:+77000000000"
+                    href="tel:+77770426262"
                     className="text-gray-600 dark:text-dark-300 hover:text-gold-500 transition-colors"
                   >
-                    +7 (700) 000-00-00
+                    +7 (777) 042-62-62
                   </a>
                 </li>
                 <li className="flex items-center gap-3 text-sm">

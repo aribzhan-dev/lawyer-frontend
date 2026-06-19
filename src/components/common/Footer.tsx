@@ -102,11 +102,6 @@ export default function Footer() {
                     +7 (777) 042-62-62
                   </a>
                 </div>
-                <div className="flex items-center gap-3 ml-7">
-                  <a href="tel:+77000007747" className="hover:text-gold-400 transition-colors">
-                    +7 (700) 000-77-47
-                  </a>
-                </div>
               </li>
               <li className="flex items-center gap-3 text-gray-500 dark:text-dark-400 text-sm">
                 <Mail className="w-4 h-4 text-gold-500 flex-shrink-0" />
