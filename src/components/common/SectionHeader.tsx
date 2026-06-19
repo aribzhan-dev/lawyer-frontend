@@ -20,7 +20,10 @@ export default function SectionHeader({
           {eyebrow}
         </p>
       )}
-      <h2 className="text-4xl md:text-5xl font-semibold text-gray-900 dark:text-dark-50 leading-tight mb-4">
+      <h2 
+        className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-semibold text-gray-900 dark:text-dark-50 leading-[1.15] mb-4 break-words hyphens-auto"
+        style={{ fontFamily: 'Tahoma, sans-serif' }}
+      >
         {title} {titleHighlight && <span>{titleHighlight}</span>}
       </h2>
       <div className={`gold-divider mb-5 ${centered ? "mx-auto" : ""}`} />

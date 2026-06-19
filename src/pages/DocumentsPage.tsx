@@ -44,7 +44,10 @@ export default function DocumentsPage() {
             </span>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl font-semibold text-gray-900 dark:text-dark-50 mb-3">
+          <h1 
+            className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-semibold text-gray-900 dark:text-dark-50 leading-[1.15] mb-3 break-words hyphens-auto"
+            style={{ fontFamily: 'Tahoma, sans-serif' }}
+          >
             {t('documents.page_title1')} {t('documents.page_title2')}
           </h1>
           <p className="text-gray-500 dark:text-dark-400 text-base max-w-2xl">
