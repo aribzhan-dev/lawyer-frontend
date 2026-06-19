@@ -34,6 +34,34 @@ function toSlug(name: string) {
     .replace(/[^a-z0-9-]/g, '');
 }
 
+function formatPhone(val: string): string {
+  if (!val) return '';
+  let digits = val.replace(/\D/g, '');
+  if (!digits) return '';
+
+  if (digits.length === 1 && (digits === '7' || digits === '8')) {
+    return '+7 (';
+  }
+
+  if (digits.startsWith('7') || digits.startsWith('8')) {
+    if (digits.length >= 11) {
+      digits = digits.slice(1);
+    } else if (val.startsWith('+7') || val.startsWith('8')) {
+      digits = digits.slice(1);
+    }
+  }
+
+  digits = digits.slice(0, 10);
+
+  let formatted = '+7';
+  if (digits.length > 0) formatted += ` (${digits.slice(0, 3)}`;
+  if (digits.length >= 4) formatted += `) ${digits.slice(3, 6)}`;
+  if (digits.length >= 7) formatted += `-${digits.slice(6, 8)}`;
+  if (digits.length >= 9) formatted += `-${digits.slice(8, 10)}`;
+
+  return formatted;
+}
+
 export default function LawyerForm() {
   const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
@@ -74,7 +102,7 @@ export default function LawyerForm() {
         experience_years: lawyer.experience_years ?? undefined,
         education: lawyer.education ?? '',
         photo_url: lawyer.photo_url ?? '',
-        phone: lawyer.phone,
+        phone: formatPhone(lawyer.phone),
         whatsapp_message: lawyer.whatsapp_message ?? '',
         is_active: lawyer.is_active,
         order: lawyer.order,
@@ -218,7 +246,7 @@ export default function LawyerForm() {
                 id="lawyer-phone"
                 type="text"
                 value={form.phone}
-                onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                onChange={(e) => setForm({ ...form, phone: formatPhone(e.target.value) })}
                 required
                 placeholder="79001234567"
                 className="input-field font-mono"

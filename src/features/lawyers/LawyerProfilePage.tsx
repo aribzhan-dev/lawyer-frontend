@@ -7,8 +7,9 @@ import Spinner from '@/components/common/Spinner';
 import { getFileUrl } from '@/utils/getFileUrl';
 
 function buildWhatsAppUrl(phone: string, lawyerName: string, message?: string | null): string {
+  const cleanPhone = phone.replace(/\D/g, '');
   const defaultMsg = message || `Hello, I would like to schedule a consultation with ${lawyerName}.`;
-  return `https://wa.me/${phone}?text=${encodeURIComponent(defaultMsg)}`;
+  return `https://wa.me/${cleanPhone}?text=${encodeURIComponent(defaultMsg)}`;
 }
 
 export default function LawyerProfilePage() {
