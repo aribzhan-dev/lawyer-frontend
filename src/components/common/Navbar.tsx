@@ -43,13 +43,18 @@ export default function Navbar() {
       {/* Top Contact Bar */}
       <div className="w-full bg-gold-500 text-white dark:bg-gold-600 shadow-sm">
         <div className="container-max">
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 py-2 px-4 sm:px-6 lg:px-8 text-xs sm:text-sm font-medium tracking-wide">
-            <a href="tel:+77770426262" className="flex items-center gap-2 hover:text-gold-100 transition-colors">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5 py-2 px-4 sm:px-6 lg:px-8 text-xs font-medium tracking-wide">
+            <a href="tel:+77770426262" className="flex items-center gap-1.5 hover:text-gold-100 transition-colors">
               <Phone className="w-3.5 h-3.5" />
               +7 (777) 042-62-62
             </a>
             <span className="hidden sm:block text-gold-200/50">|</span>
-            <a href="mailto:info@arbitraj-shymkent.kz" className="flex items-center gap-2 hover:text-gold-100 transition-colors">
+            <a href="tel:+77000007747" className="flex items-center gap-1.5 hover:text-gold-100 transition-colors">
+              <Phone className="w-3.5 h-3.5" />
+              +7 (700) 000-77-47
+            </a>
+            <span className="hidden sm:block text-gold-200/50">|</span>
+            <a href="mailto:info@arbitraj-shymkent.kz" className="flex items-center gap-1.5 hover:text-gold-100 transition-colors">
               <Mail className="w-3.5 h-3.5" />
               info@arbitraj-shymkent.kz
             </a>
@@ -60,27 +65,27 @@ export default function Navbar() {
       <div className="container-max w-full">
         <div className="flex items-center justify-between h-20 px-4 sm:px-6 lg:px-8">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3 group">
-            <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-gold-gradient">
-              <Scale className="w-5 h-5 text-white dark:text-dark-950" strokeWidth={2.5} />
+          <Link to="/" className="flex items-center gap-2.5 group shrink-0">
+            <div className="flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-gold-gradient">
+              <Scale className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-white dark:text-dark-950" strokeWidth={2.5} />
             </div>
             <div>
-              <span className="font-serif text-xl font-semibold text-gray-900 dark:text-dark-50">
+              <span className="font-serif text-lg sm:text-xl font-semibold text-gray-900 dark:text-dark-50">
                 Арбит<span className="text-gold-400">раж</span>
               </span>
-              <p className="text-[10px] text-gray-500 dark:text-dark-400 tracking-widest uppercase -mt-0.5">Шымкент</p>
+              <p className="text-[9px] sm:text-[10px] text-gray-500 dark:text-dark-400 tracking-widest uppercase -mt-0.5">Шымкент</p>
             </div>
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-2.5 xl:gap-6">
             {navLinks.map(({ to, label }) => (
               <NavLink
                 key={to}
                 to={to}
                 end={to === '/'}
                 className={({ isActive }) =>
-                  `uppercase text-sm font-medium tracking-wide transition-colors duration-200 relative group ${
+                  `uppercase text-[10px] xl:text-xs font-medium tracking-wide transition-colors duration-200 relative group ${
                     isActive ? 'text-gold-400' : 'text-gray-600 dark:text-dark-300 hover:text-gray-900 dark:hover:text-dark-50'
                   }`
                 }
@@ -98,12 +103,12 @@ export default function Navbar() {
               </NavLink>
             ))}
             
-            <div className="flex items-center gap-3 ml-2 lg:ml-4 border-l border-gray-200 dark:border-dark-700 pl-4 lg:pl-6">
+            <div className="flex items-center gap-2 ml-1 xl:ml-3 border-l border-gray-200 dark:border-dark-700 pl-2 xl:pl-4">
               <a
                 href="/assets/docs/arbitration-agreement.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[10px] lg:text-[11px] font-semibold uppercase px-2 lg:px-3 py-2 border border-gold-500 text-gold-600 dark:text-gold-400 rounded transition-colors hover:bg-gold-500 hover:text-white dark:hover:text-white whitespace-nowrap"
+                className="text-[9px] xl:text-[10px] font-semibold uppercase px-2 py-1.5 border border-gold-500 text-gold-600 dark:text-gold-400 rounded transition-colors hover:bg-gold-500 hover:text-white dark:hover:text-white whitespace-nowrap"
               >
                 Арбитражное соглашение
               </a>
@@ -111,7 +116,7 @@ export default function Navbar() {
                 href="/assets/docs/arbitration-clause.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[10px] lg:text-[11px] font-semibold uppercase px-2 lg:px-3 py-2 bg-gold-500 text-white rounded transition-colors hover:bg-gold-600 shadow-sm shadow-gold-500/20 whitespace-nowrap"
+                className="text-[9px] xl:text-[10px] font-semibold uppercase px-2 py-1.5 bg-gold-500 text-white rounded transition-colors hover:bg-gold-600 shadow-sm shadow-gold-500/20 whitespace-nowrap"
               >
                 Арбитражная оговорка
               </a>
@@ -149,7 +154,7 @@ export default function Navbar() {
             {/* Burger menu tugmasi */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className={`md:hidden p-2 rounded-lg transition-colors ${
+              className={`lg:hidden p-2 rounded-lg transition-colors ${
                 scrolled
                   ? 'text-gray-700 dark:text-dark-200 hover:bg-gray-100 dark:hover:bg-dark-800'
                   : 'text-gray-900 dark:text-dark-50 hover:bg-black/5 dark:hover:bg-white/10'
@@ -165,7 +170,7 @@ export default function Navbar() {
 
       {/* Mobile Menu — solid background, no transparency */}
       {isOpen && (
-        <div className="md:hidden bg-white dark:bg-dark-900 border-t border-gray-200 dark:border-dark-800 animate-slide-down shadow-lg">
+        <div className="lg:hidden bg-white dark:bg-dark-900 border-t border-gray-200 dark:border-dark-800 animate-slide-down shadow-lg">
           <div className="px-4 py-4 space-y-1">
             {navLinks.map(({ to, label }) => (
               <NavLink
