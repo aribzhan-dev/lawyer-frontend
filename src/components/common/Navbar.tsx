@@ -97,12 +97,30 @@ export default function Navbar() {
                 )}
               </NavLink>
             ))}
+            
+            <div className="flex items-center gap-3 ml-2 lg:ml-4 border-l border-gray-200 dark:border-dark-700 pl-4 lg:pl-6">
+              <a
+                href="/assets/docs/arbitration-agreement.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[10px] lg:text-[11px] font-semibold uppercase px-2 lg:px-3 py-2 border border-gold-500 text-gold-600 dark:text-gold-400 rounded transition-colors hover:bg-gold-500 hover:text-white dark:hover:text-white whitespace-nowrap"
+              >
+                Арбитражное соглашение
+              </a>
+              <a
+                href="/assets/docs/arbitration-clause.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[10px] lg:text-[11px] font-semibold uppercase px-2 lg:px-3 py-2 bg-gold-500 text-white rounded transition-colors hover:bg-gold-600 shadow-sm shadow-gold-500/20 whitespace-nowrap"
+              >
+                Арбитражная оговорка
+              </a>
+            </div>
           </nav>
 
-          {/* CTA + Actions + Mobile Menu Toggle */}
+
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-1">
-              {/* RU/KK tugmasi — scrolled holatda ham, transparent holatda ham ko'rinadi */}
               <button
                 onClick={toggleLanguage}
                 className={`w-9 h-9 flex items-center justify-center rounded-lg text-xs font-semibold uppercase transition-colors ${
@@ -165,6 +183,25 @@ export default function Navbar() {
                 {label}
               </NavLink>
             ))}
+            
+            <div className="pt-4 mt-4 border-t border-gray-200 dark:border-dark-800 flex flex-col gap-3">
+              <a
+                href="/assets/docs/arbitration-agreement.docx"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center w-full text-xs font-semibold uppercase px-4 py-3.5 border border-gold-500 text-gold-600 dark:text-gold-400 rounded-xl hover:bg-gold-500 hover:text-white dark:hover:text-white transition-colors"
+              >
+                Арбитражное соглашение
+              </a>
+              <a
+                href="/assets/docs/arbitration-clause.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center w-full text-xs font-semibold uppercase px-4 py-3.5 bg-gold-500 text-white rounded-xl hover:bg-gold-600 transition-colors shadow-sm"
+              >
+                Арбитражная оговорка
+              </a>
+            </div>
           </div>
         </div>
       )}
