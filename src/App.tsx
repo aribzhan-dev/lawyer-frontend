@@ -1,9 +1,8 @@
-import { BrowserRouter } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useEffect } from 'react';
 import AppRouter from '@/router/AppRouter';
-import ToastContainer from './components/common/ToastContainer';
 import Spinner from './components/common/Spinner';
+import ErrorBoundary from './components/common/ErrorBoundary';
 import { useUIStore } from './store/uiStore';
 
 function App() {
@@ -27,10 +26,10 @@ function App() {
   }, [i18n.language]);
 
   return (
-    <>
+    <ErrorBoundary>
       {isLoading && <Spinner />}
       <AppRouter />
-    </>
+    </ErrorBoundary>
   );
 }
 

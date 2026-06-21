@@ -37,7 +37,7 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
               <Scale className="w-4.5 h-4.5 text-white dark:text-dark-950" strokeWidth={2.5} />
             </div>
             <div>
-              <div className="font-serif text-base text-gray-900 dark:text-dark-50">
+              <div translate="no" className="font-serif text-base text-gray-900 dark:text-dark-50 whitespace-nowrap">
                 Арбит<span className="text-gold-400">раж</span>
               </div>
               <div className="text-[10px] text-gray-500 dark:text-dark-500 tracking-widest uppercase">Шымкент</div>
@@ -56,14 +56,14 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
                 `flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 group ${
                   isActive
                     ? 'bg-gold-500/15 text-gold-400 border border-gold-500/20'
-                    : 'text-gray-500 dark:text-dark-400 hover:text-gray-800 dark:text-dark-100 hover:bg-white dark:bg-dark-800'
+                    : 'text-gray-500 dark:text-dark-400 hover:text-gray-800 dark:hover:text-dark-100 hover:bg-gray-100 dark:hover:bg-dark-800'
                 }`
               }
               id={`admin-nav-${label.toLowerCase()}`}
             >
               {({ isActive }) => (
                 <>
-                  <Icon className={`w-4 h-4 ${isActive ? 'text-gold-400' : 'text-gray-500 dark:text-dark-500 group-hover:text-gray-600 dark:text-dark-300'}`} />
+                  <Icon className={`w-4 h-4 ${isActive ? 'text-gold-400' : 'text-gray-500 dark:text-dark-500 group-hover:text-gray-600 dark:group-hover:text-dark-300'}`} />
                   <span className="flex-1">{label}</span>
                   {isActive && <ChevronRight className="w-3.5 h-3.5 text-gold-500/60" />}
                 </>

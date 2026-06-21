@@ -12,6 +12,12 @@ import {
   ChevronRight,
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import {
+  COMPANY_ADDRESS,
+  COMPANY_ADDRESS_MAP_URL,
+  COMPANY_EMAIL,
+  COMPANY_PHONES,
+} from "@/config/contacts";
 
 export default function AboutUsPage() {
   const { t } = useTranslation();
@@ -222,17 +228,14 @@ export default function AboutUsPage() {
               <div className="w-10 h-0.5 bg-gold-gradient mb-5" />
               <div className="flex items-start gap-3 text-gray-600 dark:text-dark-300 text-sm">
                 <MapPin className="w-5 h-5 text-gold-500 mt-0.5 flex-shrink-0" />
-                <span className="leading-relaxed">
-                  Казахстан, город Шымкент,
-                  <br />
-                  район Тұран, Микрорайон 8,
-                  <br />
-                  дом 54, кв. 18
-                  <br />
-                  <span className="text-gray-400 dark:text-dark-500 text-xs mt-1 block">
-                    Индекс: 160000
-                  </span>
-                </span>
+                <a
+                  href={COMPANY_ADDRESS_MAP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="leading-relaxed hover:text-gold-500 transition-colors"
+                >
+                  {COMPANY_ADDRESS}
+                </a>
               </div>
               {/* Ish vaqti */}
               <div className="mt-4 glass-card p-4">
@@ -255,24 +258,24 @@ export default function AboutUsPage() {
               </h2>
               <div className="w-10 h-0.5 bg-gold-gradient mb-5" />
               <ul className="space-y-3">
-                <li className="flex items-center gap-3 text-sm">
-                  <Phone className="w-4 h-4 text-gold-500 flex-shrink-0" />
-                  {/* tel: protokoli — <a> tegi */}
-                  <a
-                    href="tel:+77770426262"
-                    className="text-gray-600 dark:text-dark-300 hover:text-gold-500 transition-colors"
-                  >
-                    +7 (777) 042-62-62
-                  </a>
-                </li>
+                {COMPANY_PHONES.map((phone) => (
+                  <li key={phone.href} className="flex items-center gap-3 text-sm">
+                    <Phone className="w-4 h-4 text-gold-500 flex-shrink-0" />
+                    <a
+                      href={phone.href}
+                      className="text-gray-600 dark:text-dark-300 hover:text-gold-500 transition-colors"
+                    >
+                      {phone.display}
+                    </a>
+                  </li>
+                ))}
                 <li className="flex items-center gap-3 text-sm">
                   <Mail className="w-4 h-4 text-gold-500 flex-shrink-0" />
-                  {/* mailto: protokoli — <a> tegi */}
                   <a
-                    href="mailto:info@arbitraj-shymkent.kz"
+                    href={`mailto:${COMPANY_EMAIL}`}
                     className="text-gray-600 dark:text-dark-300 hover:text-gold-500 transition-colors"
                   >
-                    info@arbitraj-shymkent.kz
+                    {COMPANY_EMAIL}
                   </a>
                 </li>
               </ul>

@@ -85,7 +85,7 @@ export default function DocumentList() {
                 </tr>
               ) : (
                 documents.map((doc) => (
-                  <tr key={doc.id} className="hover:bg-white dark:bg-dark-800/30 transition-colors">
+                  <tr key={doc.id} className="hover:bg-gray-50 dark:hover:bg-dark-800/30 transition-colors">
                     {/* Sarlavha + fayl ikonkasi */}
                     <td className="px-6 py-4">
                       <div className="flex items-center gap-3">

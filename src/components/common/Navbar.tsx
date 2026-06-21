@@ -3,6 +3,7 @@ import { Link, NavLink, useLocation } from 'react-router-dom';
 import { Menu, X, Scale, Sun, Moon, Phone, Mail } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { useUIStore } from '../../store/uiStore';
+import { COMPANY_EMAIL, COMPANY_PHONES } from '@/config/contacts';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -43,20 +44,21 @@ export default function Navbar() {
       {/* Top Contact Bar */}
       <div className="w-full bg-gold-500 text-white dark:bg-gold-600 shadow-sm">
         <div className="container-max">
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5 py-2 px-4 sm:px-6 lg:px-8 text-xs font-medium tracking-wide">
-            <a href="tel:+77770426262" className="flex items-center gap-1.5 hover:text-gold-100 transition-colors">
-              <Phone className="w-3.5 h-3.5" />
-              +7 (777) 042-62-62
-            </a>
+          <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-x-3 gap-y-1 sm:gap-x-5 py-2 px-4 sm:px-6 lg:px-8 text-xs font-medium tracking-wide">
+            {COMPANY_PHONES.map((phone) => (
+              <a
+                key={phone.href}
+                href={phone.href}
+                className="flex items-center gap-1.5 hover:text-gold-100 transition-colors"
+              >
+                <Phone className="w-3.5 h-3.5" />
+                {phone.display}
+              </a>
+            ))}
             <span className="hidden sm:block text-gold-200/50">|</span>
-            <a href="tel:+77000007747" className="flex items-center gap-1.5 hover:text-gold-100 transition-colors">
-              <Phone className="w-3.5 h-3.5" />
-              +7 (700) 000-77-47
-            </a>
-            <span className="hidden sm:block text-gold-200/50">|</span>
-            <a href="mailto:info@arbitraj-shymkent.kz" className="flex items-center gap-1.5 hover:text-gold-100 transition-colors">
+            <a href={`mailto:${COMPANY_EMAIL}`} className="flex items-center gap-1.5 hover:text-gold-100 transition-colors">
               <Mail className="w-3.5 h-3.5" />
-              info@arbitraj-shymkent.kz
+              {COMPANY_EMAIL}
             </a>
           </div>
         </div>
@@ -70,7 +72,7 @@ export default function Navbar() {
               <Scale className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-white dark:text-dark-950" strokeWidth={2.5} />
             </div>
             <div>
-              <span className="font-serif text-lg sm:text-xl font-semibold text-gray-900 dark:text-dark-50">
+              <span translate="no" className="font-serif text-lg sm:text-xl font-semibold text-gray-900 dark:text-dark-50 whitespace-nowrap">
                 Арбит<span className="text-gold-400">раж</span>
               </span>
               <p className="text-[9px] sm:text-[10px] text-gray-500 dark:text-dark-400 tracking-widest uppercase -mt-0.5">Шымкент</p>
@@ -191,7 +193,7 @@ export default function Navbar() {
             
             <div className="pt-4 mt-4 border-t border-gray-200 dark:border-dark-800 flex flex-col gap-3">
               <a
-                href="/assets/docs/arbitration-agreement.docx"
+                href="/assets/docs/arbitration-agreement.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center w-full text-xs font-semibold uppercase px-4 py-3.5 border border-gold-500 text-gold-600 dark:text-gold-400 rounded-xl hover:bg-gold-500 hover:text-white dark:hover:text-white transition-colors"

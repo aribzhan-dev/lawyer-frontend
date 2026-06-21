@@ -6,9 +6,11 @@ import type { Document } from "@/types/document";
 import Spinner from "@/components/common/Spinner";
 
 import { getFileUrl } from "@/utils/getFileUrl";
+import { useIsMobile } from "@/hooks/useIsMobile";
 
 export default function DocumentsPage() {
   const { t } = useTranslation();
+  const isMobile = useIsMobile();
 
   const [documents, setDocuments] = useState<Document[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -30,6 +32,12 @@ export default function DocumentsPage() {
   const categories = Array.from(
     new Set(documents.map((d) => d.category).filter(Boolean)),
   ) as string[];
+
+  // Tanlangan hujjat uchun hosil qilingan qiymatlar
+  const fileUrl = selected ? getFileUrl(selected.file_url) : "";
+  const isPdf = selected
+    ? selected.file_url.toLowerCase().endsWith(".pdf")
+    : false;
 
   return (
     <main className="min-h-screen bg-white dark:bg-dark-950 pt-[200px] sm:pt-[160px] md:pt-48 pb-16">
@@ -131,7 +139,7 @@ export default function DocumentsPage() {
                     {/* Yuklab olish + yangi tabda ochish — <a> tegi bilan */}
                     <div className="flex items-center gap-2 flex-shrink-0 ml-3">
                       <a
-                        href={getFileUrl(selected.file_url)}
+                        href={fileUrl}
                         target="_blank"
                         rel="noopener noreferrer"
                         id={`doc-view-${selected.id}`}
@@ -147,7 +155,7 @@ export default function DocumentsPage() {
                       </a>
 
                       <a
-                        href={getFileUrl(selected.file_url)}
+                        href={fileUrl}
                         download
                         id={`doc-download-${selected.id}`}
                         className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium
@@ -163,34 +171,52 @@ export default function DocumentsPage() {
                     </div>
                   </div>
 
-                  {/* PDF iframe viewer */}
+                  {/* PDF viewer.
+                      Mobil brauzerlar PDF ni <iframe> ichida ko'rsata olmaydi
+                      (ko'pincha to'g'ridan-to'g'ri yuklab oladi), shuning uchun
+                      faqat desktopda iframe ishlatamiz; mobilda ochish/yuklash kartasini. */}
                   <div className="flex-1 bg-gray-100 dark:bg-dark-900">
-                    {selected.file_url.toLowerCase().endsWith(".pdf") ? (
+                    {isPdf && !isMobile ? (
                       <iframe
                         key={selected.id}
-                        src={`${getFileUrl(selected.file_url)}#toolbar=1&view=FitH`}
+                        src={`${fileUrl}#toolbar=1&view=FitH`}
                         title={selected.title}
                         className="w-full h-full min-h-[580px] border-0"
                         loading="lazy"
                       />
                     ) : (
-                      /* PDF bo'lmagan fayllar uchun yuklab olish sahifasi */
-                      <div className="flex flex-col items-center justify-center h-full py-20 gap-4">
+                      /* Mobil PDF yoki PDF bo'lmagan fayllar — ochish/yuklash kartasi */
+                      <div className="flex flex-col items-center justify-center h-full py-20 px-6 gap-4">
                         <div className="w-16 h-16 rounded-2xl bg-gold-500/10 flex items-center justify-center">
                           <BookOpen className="w-8 h-8 text-gold-500" />
                         </div>
                         <p className="text-gray-500 dark:text-dark-400 text-sm text-center max-w-xs">
                           {selected.title}
                         </p>
-                        <a
-                          href={getFileUrl(selected.file_url)}
-                          download
-                          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-medium
-                                     text-white bg-gold-500 hover:bg-gold-600 transition-colors"
-                        >
-                          <Download className="w-4 h-4" />
-                          {t("documents.download")}
-                        </a>
+                        <div className="flex flex-col sm:flex-row items-center gap-2.5">
+                          {isPdf && (
+                            <a
+                              href={fileUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg text-sm font-medium
+                                         text-gold-600 dark:text-gold-400 bg-gold-500/10 hover:bg-gold-500/20
+                                         border border-gold-500/20 transition-colors"
+                            >
+                              <Eye className="w-4 h-4" />
+                              {t("documents.view")}
+                            </a>
+                          )}
+                          <a
+                            href={fileUrl}
+                            download
+                            className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg text-sm font-medium
+                                       text-white bg-gold-500 hover:bg-gold-600 transition-colors"
+                          >
+                            <Download className="w-4 h-4" />
+                            {t("documents.download")}
+                          </a>
+                        </div>
                       </div>
                     )}
                   </div>

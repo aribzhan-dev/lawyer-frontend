@@ -72,7 +72,7 @@ export default function АдвокатList() {
                 </tr>
               ) : (
                 lawyers.map((lawyer) => (
-                  <tr key={lawyer.id} className="hover:bg-white dark:bg-dark-800/30 transition-colors">
+                  <tr key={lawyer.id} className="hover:bg-gray-50 dark:hover:bg-dark-800/30 transition-colors">
                     <td className="px-6 py-4">
                       <div className="flex items-center gap-3">
                         <div className="w-9 h-9 rounded-lg overflow-hidden bg-gray-100 dark:bg-dark-700 flex-shrink-0">

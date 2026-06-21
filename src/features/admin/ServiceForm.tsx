@@ -85,7 +85,7 @@ export default function ServiceForm() {
       <div className="flex items-center gap-4 mb-8">
         <button
           onClick={() => navigate('/admin/services')}
-          className="p-2 rounded-lg text-gray-500 dark:text-dark-400 hover:text-gray-900 dark:text-dark-50 hover:bg-white dark:bg-dark-800 transition-colors"
+          className="p-2 rounded-lg text-gray-500 dark:text-dark-400 hover:text-gray-900 dark:hover:text-dark-50 hover:bg-gray-100 dark:hover:bg-dark-800 transition-colors"
         >
           <ArrowLeft className="w-5 h-5" />
         </button>

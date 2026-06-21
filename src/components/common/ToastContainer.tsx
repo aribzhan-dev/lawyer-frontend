@@ -33,7 +33,7 @@ export default function ToastContainer() {
           <span className="flex-1 text-gray-800 dark:text-dark-100 text-sm leading-snug">{toast.message}</span>
           <button
             onClick={() => removeToast(toast.id)}
-            className="text-gray-500 dark:text-dark-500 hover:text-gray-700 dark:text-dark-200 transition-colors -mt-0.5"
+            className="text-gray-500 dark:text-dark-500 hover:text-gray-700 dark:hover:text-dark-200 transition-colors -mt-0.5"
             aria-label="Dismiss"
           >
             <X className="w-3.5 h-3.5" />

@@ -10,7 +10,7 @@ import Spinner from '@/components/common/Spinner';
 function ServiceRow({ service, depth = 0, onDelete }: { service: Service; depth?: number; onDelete: (id: number, name: string) => void }) {
   return (
     <>
-      <tr className="hover:bg-white dark:bg-dark-800/30 transition-colors">
+      <tr className="hover:bg-gray-50 dark:hover:bg-dark-800/30 transition-colors">
         <td className="px-6 py-3">
           <div className="flex items-center gap-2" style={{ paddingLeft: `${depth * 20}px` }}>
             {depth > 0 && <ChevronRight className="w-3.5 h-3.5 text-gray-400 dark:text-dark-600 flex-shrink-0" />}
