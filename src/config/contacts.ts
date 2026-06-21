@@ -8,8 +8,18 @@ export interface PhoneContact {
   href: string;
 }
 
-export const COMPANY_ADDRESS =
-  'РК. г. Шымкент, Каратауский район, жилой массив Сайрам, ул. Амир Темир, дом№ 237/9, 2- этаж, 2-каб';
+// Manzil — chiroyli ko'rsatish uchun qatorlarga bo'lingan
+// ("Каратауский район" bir qatorda turishi uchun).
+export const COMPANY_ADDRESS_LINES = [
+  'РК, г. Шымкент,',
+  'Каратауский район,',
+  'жилой массив Сайрам,',
+  'ул. Амир Темир, дом № 237/9,',
+  '2 этаж, каб. 2',
+];
+
+// 2GIS havolasi va matn uchun to'liq manzil (qatorlardan yig'iladi).
+export const COMPANY_ADDRESS = COMPANY_ADDRESS_LINES.join(' ');
 
 /** Manzilni bosganda 2GIS'da ochiladi */
 export const COMPANY_ADDRESS_MAP_URL = `https://2gis.kz/shymkent/search/${encodeURIComponent(

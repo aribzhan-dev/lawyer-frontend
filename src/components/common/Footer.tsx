@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { Scale, Phone, Mail, MapPin } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import {
-  COMPANY_ADDRESS,
+  COMPANY_ADDRESS_LINES,
   COMPANY_ADDRESS_MAP_URL,
   COMPANY_EMAIL,
   COMPANY_PHONES,
@@ -89,7 +89,11 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   className="hover:text-gold-400 transition-colors leading-relaxed"
                 >
-                  {COMPANY_ADDRESS}
+                  {COMPANY_ADDRESS_LINES.map((line) => (
+                    <span key={line} className="block">
+                      {line}
+                    </span>
+                  ))}
                 </a>
               </li>
               <li className="flex flex-col gap-2 text-gray-500 dark:text-dark-400 text-sm">

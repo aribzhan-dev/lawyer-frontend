@@ -13,7 +13,7 @@ import {
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import {
-  COMPANY_ADDRESS,
+  COMPANY_ADDRESS_LINES,
   COMPANY_ADDRESS_MAP_URL,
   COMPANY_EMAIL,
   COMPANY_PHONES,
@@ -234,7 +234,11 @@ export default function AboutUsPage() {
                   rel="noopener noreferrer"
                   className="leading-relaxed hover:text-gold-500 transition-colors"
                 >
-                  {COMPANY_ADDRESS}
+                  {COMPANY_ADDRESS_LINES.map((line) => (
+                    <span key={line} className="block">
+                      {line}
+                    </span>
+                  ))}
                 </a>
               </div>
               {/* Ish vaqti */}
